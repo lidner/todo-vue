@@ -1,7 +1,7 @@
 <template>
     <div class="todo-item">
         <div class="todo-item-left">
-              <input type="checkbox" v-model="completed" @change="doneEdit">
+              <input class="check" type="checkbox" v-model="completed" @change="doneEdit">
               <div v-if="!editing" @dblclick="editTodo" class="todo-item-label" :class="{ completed: completed }">
                   {{ title }}
               </div>
@@ -95,5 +95,7 @@ export default {
 </script>
 
 <style>
-
+.check {
+    margin-top: 20px;
+}
 </style>

@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Login from './components/auth/Login.vue'
+import Logout from './components/auth/Logout.vue'
+import Register from './components/auth/Register.vue'
+import About from './components/marketing/About.vue'
+import LandingPage from './components/marketing/LandingPage.vue'
+import App from './App'
+import TestTodosVariable from './components/marketing/TestTodosVariable.vue'
 
 Vue.use(Router)
 
@@ -11,15 +17,46 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: LandingPage
+    },
+    {
+      path: '/todo',
+      name: 'todo',
+      component: App,
+      meta: {
+        requiresAuth: true,
+      }
     },
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: About
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta: {
+        requiresVisitor: true,
+      }
+    },
+    {
+      path: '/logout',
+      name: 'logout',
+      component: Logout
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register,
+      meta: {
+        requiresVisitor: true,
+      }
+    },
+    {
+      path: '/todos/:id',
+      name: 'todos',
+      component: TestTodosVariable
     }
   ]
 })

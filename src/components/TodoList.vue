@@ -1,6 +1,6 @@
 <template>
   <div>
-      <input type="text" class="todo-input" placeholder="Any tasks?" v-model="newTodo" @keyup.enter="addTodo">
+      <input type="text" class="todo-input" placeholder="Пиши уже задачи, чтобы не забывать их" v-model="newTodo" @keyup.enter="addTodo">
       <transition-group name="fade" enter-active-class="animated fadeInUp" leave-active-class="animated fadeOutDown">
       <todo-item v-for="todo in todosFiltered" :key="todo.id" :todo="todo" :checkAll="!anyRemaining">
       </todo-item>
@@ -164,6 +164,7 @@ export default {
     font-size: 14px;
     background-color: white;
     appearance: none;
+    padding: 4px;
     &:hover {
       background: lightgreen;
     }

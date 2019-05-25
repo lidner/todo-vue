@@ -1,6 +1,6 @@
 <template>
      <div>
-        <button v-if="showClearCompletedButton" @click="clearCompleted">Clear Completed</button>
+        <button id="clear" v-if="showClearCompletedButton" @click="clearCompleted">Удалить выполненные</button>
     </div>
 </template>
 
@@ -23,5 +23,16 @@ export default {
 </script>
 
 <style>
+#clear {
+    /* width: 200px; */
+    padding: 1em;
+    border-radius: 10px;
+    background: rgba(255, 0, 0, 0.4);
+    margin-right: 1em;
+}
 
+#clear:hover {
+    background: grey;
+    color: white;
+}
 </style>
